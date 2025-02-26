@@ -1,8 +1,24 @@
 "use client"
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+function scrollFunction() {
+  if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+    document.getElementById("navbar").style.top = "0px";
+document.getElementById("navbar").classList.add('fixed-top');
 
+  } else {
+    document.getElementById("navbar").style.top = "0px";
+    document.getElementById("navbar").classList.remove('fixed-top');
+  }
+}
 function Header() {
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.onscroll = function () {
+        scrollFunction();
+      };
+    }
+  }, []);
     let [cat,setCat]= useState([])
     useEffect(()=>{
         fetch(`https://bankingkhabar.com/wp-json/wp/v2/categories`)
@@ -31,7 +47,7 @@ function Header() {
           </div>
         </div>
 
-        <nav className="navbar container navbar-expand-lg nav-bg  fw-bold" id="navbar">
+        <nav className="navbar navbar-expand-lg nav-bg  fw-bold" id="navbar">
           <div className="container">
             <button
               className="navbar-toggler navbar-dark"

@@ -2,21 +2,8 @@
 
 import React, { useEffect, useState } from "react";
 
-function scrollFunction() {
-  if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-    document.getElementById("navbar").style.top = "0px";
-document.getElementById("navbar").classList.add('fixed-top');
-document.getElementById("navbar").classList.add('bg-red-300');
-
-  } else {
-    document.getElementById("navbar").style.top = "-55px";
-    document.getElementById("navbar").classList.remove('fixed-top');
-document.getElementById("navbar").classList.remove('bg-red-300');
-  }
-}
 
 function Home() {
-  window.onscroll = function() {scrollFunction()};
   let [homepost, setHomepost] = useState([]);
   useEffect(() => {
     fetch(`https://bankingkhabar.com/wp-json/wp/v2/posts`)

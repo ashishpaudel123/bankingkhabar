@@ -2,20 +2,7 @@
 import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
-function scrollFunction() {
-  if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-    document.getElementById("navbar").style.top = "0px";
-document.getElementById("navbar").classList.add('fixed-top');
-document.getElementById("navbar").classList.add('bg-red-300');
-
-  } else {
-    document.getElementById("navbar").style.top = "-55px";
-    document.getElementById("navbar").classList.remove('fixed-top');
-document.getElementById("navbar").classList.remove('bg-red-300');
-  }
-}
 function page() {
-  window.onscroll = function() {scrollFunction()};
   let [post,setPost]= useState([])
   let {catid}=useParams()
   useEffect(()=>{
@@ -25,7 +12,7 @@ function page() {
     <>
       <div className="container">
       <div className="row my-3">
-        {catid}
+        {/* {catid} */}
           {post.map((a)=>(
             <div key={a.id} className="row">
               <div className="col-lg-9 rounded bt mb-4">
