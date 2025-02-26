@@ -12,7 +12,7 @@ function page() {
     <>
       <div className="container">
       <div className="row my-3">
-        {catid}
+        {/* {catid} */}
           {post.map((a)=>(
             <div key={a.id} className="row">
               <div className="col-lg-9 rounded bt mb-4">
