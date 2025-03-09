@@ -15,6 +15,10 @@
 .nav-link{
   padding: 15px 15px !important;
 }
+.nav-link:hover{
+  background-color: #ec0a19;
+  color: whitesmoke;
+}
 .navbar-toggler-icon{
 
   padding: 17px !important;
@@ -26,24 +30,24 @@
 }
 .riw{
   width: 100%;
-  height: auto;
+  height: 130px;
   object-fit: cover;
   overflow: hidden;
 }
-.bt:nth-child(:first){
-  border-top: 10px solid #a6a5a5;
+.bt{
+  border-bottom: 1px solid #c1bbbb !important;
   
 }
 .pt{
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 3; /* number of lines to show */
-  line-clamp: 3;
-  -webkit-box-orient: vertical;
-  font-size: 23px;
-  color: #000;
-  font-weight: 400;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 5 !important; /* number of lines to show */
+  line-clamp: 5 !important;
+  -webkit-box-orient: vertical !important;
+  font-size: 23px !important;
+  color: #000 !important;
+  font-weight: 400 !important;
 }
 .ht{
   color: #315499;
@@ -56,6 +60,10 @@
    text-overflow: ellipsis;
    display: -webkit-box;
 }
+.font-20{
+  font-size: 20px !important;
+}
+
 .l2{
   color: #d4000e;
   font-weight: bold;
@@ -104,7 +112,9 @@ footer p.a{
   padding: 10px 0px;
 }
 .first-title:hover{
-  color: #d4000edc;
+  color: #fb0313cf;
+  transform: scale(1.001);
+  transition: 0.5s;
 }
 
 .parent{
@@ -150,7 +160,77 @@ span{
 .bg-red-300{
   background-color: rgba(255, 0, 0, 0.7);
 }
+.bg-light-red{
+  background-color: #d4000ec1 !important;
+}
+.t-0{
+  margin-top: -350px !important;
+}
+a{
+  text-decoration: none !important;
+}
+.ahover:hover{
+  color: #f50111d4 !important;
+}
+.darkhover:hover{
+  color: #00000094 !important;
+}
 
+/* loader css start */
+.dots-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  padding: 220px 0px;
+}
+
+.dot {
+  height: 20px;
+  width: 20px;
+  margin-right: 10px;
+  border-radius: 10px;
+  background-color: #b3d4fc;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.dot:last-child {
+  margin-right: 0;
+}
+
+.dot:nth-child(1) {
+  animation-delay: -0.3s;
+}
+
+.dot:nth-child(2) {
+  animation-delay: -0.1s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.1s;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.8);
+    background-color: #b3d4fc;
+    box-shadow: 0 0 0 0 rgba(178, 212, 252, 0.7);
+  }
+
+  50% {
+    transform: scale(1.2);
+    background-color: #6793fb;
+    box-shadow: 0 0 0 10px rgba(178, 212, 252, 0);
+  }
+
+  100% {
+    transform: scale(0.8);
+    background-color: #b3d4fc;
+    box-shadow: 0 0 0 0 rgba(178, 212, 252, 0.7);
+  }
+}
+/* loader css end */
 @media (max-width:992px)
 {
   .nav-border{

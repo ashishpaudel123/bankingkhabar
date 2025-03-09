@@ -5,10 +5,12 @@ function scrollFunction() {
   if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
     document.getElementById("navbar").style.top = "0px";
 document.getElementById("navbar").classList.add('fixed-top');
+document.getElementById("navbar").classList.add('bg-light-red');
 
   } else {
     document.getElementById("navbar").style.top = "0px";
     document.getElementById("navbar").classList.remove('fixed-top');
+    document.getElementById("navbar").classList.remove('bg-light-red');
   }
 }
 function Header() {
@@ -81,8 +83,8 @@ function Header() {
             </div>
           </div>
         </nav>
-        <div className="container text-end pt-2 border-bottom">
-        <iframe src="https://free.timeanddate.com/clock/i9ru7rk7/n117/tlnp/tt0/tm1/ta1/tb2" frameborder="0" width="254" height="18"></iframe>
+        <div className="container text-end px-2 my-1 border-bottom">
+        <iframe scrolling="no" border="0" frameborder="0" marginwidth="0" marginheight="0" allowtransparency="true" src="https://www.ashesh.com.np/linknepali-time.php?dwn=only&font_color=333333&font_size=16&bikram_sambat=0&api=920133p281" width="165" height="22"></iframe>
         </div>
 
 

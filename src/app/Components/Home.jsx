@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
 
@@ -12,7 +13,7 @@ function Home() {
             return res.json()
           } else {
            // You can redirect to error page here or show an error toast
-           throw Error('Error message. Erroe in data fetch');
+           throw Error('Error message. Error in data fetch');
           } 
       })
       .then((a) => setHomepost(a))
@@ -32,7 +33,7 @@ function Home() {
           {homepost.slice(0, 1).map((a) => (
             <div className="row py-2" key={a.id}>
               <div className="col-lg-12">
-                <h1 className="first-title">{a.title.rendered}</h1>
+                <Link href={`/details/${a.id}`}><h1 className="first-title">{a.title.rendered}</h1></Link>
                 <img className="w-100" src={a.featured_image_src} alt="" />
                 {/* ads */}
                 <img
@@ -51,12 +52,10 @@ function Home() {
               <img
                 className="w-100 overlay"
                 src={a.featured_image_src}
-                alt=""
+                alt="img"
               />
               <div className="child">
-                <h2 className="fw-bold text-light text-center">
-                  {a.title.rendered}
-                </h2>
+              <Link href={`/details/${a.id}`}><h2 className="fw-bold text-light text-center">{a.title.rendered}</h2></Link>
               </div>
             </div>
           ))}
@@ -71,9 +70,7 @@ function Home() {
                 alt=""
               />
               <div className="child">
-                <h2 className="fw-bold text-light text-center">
-                  {a.title.rendered}
-                </h2>
+                <Link href={`/details/${a.id}`}><h2 className="fw-bold text-light text-center">{a.title.rendered}</h2></Link>
               </div>
             </div>
           ))}
@@ -89,10 +86,10 @@ function Home() {
           <div className="row py-2">
             {homepost.slice(4, 7).map((a) => (
               <div key={a.id} className="col-lg-4 col-md-4 col-sm-6 col-12 py-2">
+                <Link href={`/details/${a.id}`}>
                 <img height="220" className="w-100 objc" src={a.featured_image_src} alt="" />
-                <h2 className="fw-bold l2 text-center py-2">
-                  {a.title.rendered}
-                </h2>
+                </Link>
+                <Link href={`/details/${a.id}`}><h2 className="fw-bold l2 ahover text-center py-3">{a.title.rendered}</h2></Link>
               </div>
             ))}
           </div>
@@ -114,32 +111,30 @@ function Home() {
               {homepost.slice(4, 5).map((a) => (
                 <div key={a.id}>
                   <div className="parent py-2">
-                    <img
+                  <Link href={`/details/${a.id}`}><img
                       className="overlay"
                       id="height-150"
                       src={a.featured_image_src}
                       alt=""
-                    />
+                    /></Link>
                     <div className="child">
-                      <h4 className="fw-bold text-light text-center">
-                        {a.title.rendered}
-                      </h4>
+                    <Link href={`/details/${a.id}`}><h5 className="fw-bold text-light text-center">{a.title.rendered}</h5></Link>     
                     </div>
                   </div>
-                  <div className="l5" dangerouslySetInnerHTML={{__html:a.excerpt.rendered}}/>
+                  <div className="l5 my-2" dangerouslySetInnerHTML={{__html:a.excerpt.rendered}}/>
                   </div>
                 ))}
                 </div>
 
                 <div className="col-lg-6 py-2">   
-                {homepost.slice(6, 10).map((a) => (
+                {homepost.slice(5, 10).map((a) => (
                 <div key={a.id}>
-                    <div className="row border-bottom mt-0 my-5">
-                        <div className="col-lg-4">
+                    <div className="row border-bottom mt-0 my-2">
+                        <div className="col-lg-4 my-2">
                             <img className="w-100" src={a.featured_image_src} alt="" />
                         </div>
-                        <div className="col-lg-8">
-                        <div className="l2 text-dark" dangerouslySetInnerHTML={{__html:a.excerpt.rendered}}/>
+                        <div className="col-lg-8 my-2">
+                        <Link href={`/details/${a.id}`}><div className="l2 text-dark darkhover" dangerouslySetInnerHTML={{__html:a.title.rendered}}/></Link>
                         </div>
                     </div>
                 </div>
@@ -155,12 +150,11 @@ function Home() {
                 src="https://bankingkhabar.com/wp-content/uploads/2019/09/subisu.gif"
                 alt=""
               />
-              <img className="w-100 mt-3" src="https://bizmandu.com/wp-content/uploads/2025/01/Bizmandu-Design_300x150.gif" alt="" />
+              <img className="w-100 mt-5" src="https://bizmandu.com/wp-content/uploads/2025/01/Bizmandu-Design_300x150.gif" alt="" />
             </div>
             {/* ads */}
             {/* मुख्य close  */}
           </div>
-
           {/* ads */}
           <img
             className="w-100"
@@ -174,10 +168,11 @@ function Home() {
             <span className="bg-danger fw-bold text-center fs-5 text-light py-2">विशेष</span>
             {homepost.slice(1,4).map((a) => (
               <div key={a.id} className="col-lg-4 col-md-4 col-sm-6 col-12 py-2">
-                <img height="220" className="w-100 objc" src={a.featured_image_src} alt="" />
-                <h2 className="fw-bold l2 text-center py-2">
+                <Link href={`/details/${a.id}`}><img height="220" className="w-100 objc" src={a.featured_image_src} alt="" /></Link>
+                <Link href={`/details/${a.id}`}> <h2 className="fw-bold ahover l2 text-center my-2">
                   {a.title.rendered}
                 </h2>
+                </Link>
               </div>
             ))}
           </div>
@@ -200,19 +195,23 @@ function Home() {
               <div className="col-lg-6">
               {homepost.slice(5, 6).map((a) => (
                 <div key={a.id}>
+                  <Link href={`/details/${a.id}`}>
                   <div className="parent py-2">
+                    
                     <img
                       className="overlay"
                       id="height-150"
                       src={a.featured_image_src}
                       alt=""
                     />
+                    
                     <div className="child">
                       <h4 className="fw-bold text-light text-center">
                         {a.title.rendered}
                       </h4>
                     </div>
                   </div>
+                  </Link>
                   </div>
                 ))}
                 </div>
@@ -220,12 +219,15 @@ function Home() {
                 <div className="col-lg-6 py-2">   
                 {homepost.slice(3, 6).map((a) => (
                 <div key={a.id}>
-                    <div className="row border-bottom mt-1 my-4">
-                        <div className="col-lg-4">
+                    <div className="row border-bottom mt-1 my-2">
+                        <div className="col-lg-4 py-2">
+                        <Link href={`/details/${a.id}`}>
                             <img className="w-100" src={a.featured_image_src} alt="" />
+                            </Link>
                         </div>
-                        <div className="col-lg-8">
-                        <div className="l2 text-dark f18" dangerouslySetInnerHTML={{__html:a.excerpt.rendered}}/>
+                       
+                        <div className="col-lg-8 py-2">
+                        <Link href={`/details/${a.id}`}><div className="l2 text-dark f18" dangerouslySetInnerHTML={{__html:a.title.rendered}}/></Link>
                         </div>
                     </div>
                 </div>
@@ -238,12 +240,16 @@ function Home() {
             <div className="col-lg-4 py-2">  
                 {homepost.slice(7,10 ).map((a) => (
                 <div key={a.id}>
-                    <div className="row border-bottom mt-2 my-4">
-                        <div className="col-lg-4">
-                            <img className="w-100" src={a.featured_image_src} alt="" />
+                    <div className="row border-bottom mt-2 my-2">
+                        <div className="col-lg-4 py-2">
+                          <Link href={`/details/${a.id}`} >
+                          <img className="w-100" src={a.featured_image_src} alt="" />
+                          </Link>
                         </div>
-                        <div className="col-lg-8">
-                        <div className="l2 text-dark f18" dangerouslySetInnerHTML={{__html:a.excerpt.rendered}}/>
+                        <div className="col-lg-8 py-2">
+                          <Link href={`/details/${a.id}`}>
+                          <div className="l2 text-dark f18" dangerouslySetInnerHTML={{__html:a.title.rendered}}/>
+                          </Link>
                         </div>
                     </div>
                 </div>
@@ -267,32 +273,40 @@ function Home() {
               {homepost.slice(4, 5).map((a) => (
                 <div key={a.id}>
                   <div className="parent py-2">
+                    <Link href={`/details/${a.id}`}>
                     <img
                       className="overlay"
                       id="height-150"
                       src={a.featured_image_src}
                       alt=""
                     />
+                    </Link>
                     <div className="child">
+                      <Link href={`/details/${a.id}`}>
                       <h4 className="fw-bold text-light text-center">
                         {a.title.rendered}
                       </h4>
+                      </Link>
                     </div>
                   </div>
-                  <div className="l5" dangerouslySetInnerHTML={{__html:a.excerpt.rendered}}/>
+                  <div className="l5 my-2" dangerouslySetInnerHTML={{__html:a.excerpt.rendered}}/>
                   </div>
                 ))}
                 </div>
 
                 <div className="col-lg-6 py-2">  
-                {homepost.slice(6, 10).map((a) => (
+                {homepost.slice(5,10).map((a) => (
                 <div key={a.id}>
-                    <div className="row border-bottom mt-0 my-5">
-                        <div className="col-lg-4">
-                            <img className="w-100" src={a.featured_image_src} alt="" />
+                    <div className="row border-bottom mt-0 my-2">
+                        <div className="col-lg-4 py-2">
+                          <Link href={`/details/${a.id}`}>
+                          <img className="w-100" src={a.featured_image_src} alt="" />
+                          </Link>
                         </div>
-                        <div className="col-lg-8">
-                        <div className="l2 f18 text-dark" dangerouslySetInnerHTML={{__html:a.excerpt.rendered}}/>
+                        <div className="col-lg-8 py-2">
+                          <Link href={`/details/${a.id}`}>
+                          <div className="l2 f18 text-dark" dangerouslySetInnerHTML={{__html:a.title.rendered}}/>
+                          </Link>
                         </div>
                     </div>
                 </div>
@@ -309,12 +323,16 @@ function Home() {
             <div className="h-450 p-2 bg-dark">
             {homepost.slice(1, 10).map((a) => (
                  <div key={a.id}>
-                 <div className="row border-bottom mt-0 my-2 py-3">
-                     <div className="col-lg-4">
+                 <div className="row border-bottom mt-0 my-2">
+                     <div className="col-lg-4 py-2">
+                      <Link href={`/details/${a.id}`}>
                          <img className="w-100" src={a.featured_image_src} alt="" />
+                      </Link>
                      </div>
-                     <div className="col-lg-8">
-                     <div className="l2 f18 text-light" dangerouslySetInnerHTML={{__html:a.excerpt.rendered}}/>
+                     <div className="col-lg-8 py-2">
+                      <Link href={`/details/${a.id}`}>
+                      <div className="l2 f18 text-light" dangerouslySetInnerHTML={{__html:a.title.rendered}}/>
+                      </Link>
                      </div>
                  </div>
              </div>
